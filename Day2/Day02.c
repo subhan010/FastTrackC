@@ -2,6 +2,19 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <math.h>
+
+//
+int poww(int n, int m)
+{
+    int ans=1;
+    for(int i=0;i<m;i++)
+    {
+        ans=ans*n;
+    }
+    return ans;
+}
+//
 int find_digit_sum(int n)
 {
     int ans=0;
@@ -9,7 +22,6 @@ int find_digit_sum(int n)
     {
         ans=ans+n%10;
         n=n/10;
-
     }
 
     return ans;
@@ -38,8 +50,12 @@ int occurance_of_digits(int n,int m)
      while(n>0)
     {
         ans=n%10;
+        if(ans==m)
+        {
+            count++;
+        }
         n=n/10;
-       count++;
+      
 
     }
     return count;
@@ -53,13 +69,14 @@ bool is_palindrome(int n)
 
     while(n>0)
     {
-        ans=n%10;
+        ans=(ans*10)+n%10;
         n=n/10;
        
 
     }
-    if(temp==n)
+    if(temp==ans)
     {
+        
         return true;
     }
 
@@ -71,15 +88,34 @@ bool is_palindrome(int n)
 void generate_n_prime(int n)
 {
 
-    int count=0;
+    int m=0;
+    int start=2;
     
 
-  while(count<n)
+  while(m<n)
   {
-    for(int i=2;i<n/2;i++)
+    int count=1;
+    for(int i=2;i<=start;i++)
     {
+       if(start%i==0)
+       {
+        count ++;
+       }
 
+       if(count>2)
+       {
+
+        break;
+       }
     }
+
+    if(count<=2)
+    {
+        printf("%d\t",start);
+        m++;
+    }
+    start++;
+    
   }
     
 }
@@ -90,41 +126,60 @@ void series_and_sum(int n)
     int sum=0;
     for(int i=1;i<=n;i++)
     {
-        int j=0;
-        int temp=0;
+        int j=1;
+        int temp=1;
         while(j<i)
         {
-            temp=temp+1;
-            printf("%d+",temp);
-            temp=temp*10+1;
+            temp=(temp*10)+1;
+          
+            
             j++;
             
         }
-
+        printf("%d",temp);
+        if(i!=n)
+        {
+            printf("+");
+        }
+        sum=sum+temp;
     }
-    printf("sum %d\n",sum);
+    printf("\nsum %d\n",sum);
 }
 
 bool amstrong_number(int n)
 {
     int ans=0;
     int temp=n;
-     while(n>0)
+    int temp2=n;
+    int m=0;
+    int power=0;
+
+    while(temp2>0)
     {
-        int tem=n%10;
-        ans=ans+(tem*tem*tem);
+        temp2=temp2/10;
+        power++;
+    }
+
+    while(n>0)
+    {
+        m=n%10;
+        ans=ans+poww(m,power);
         n=n/10;
      
 
     }
 
-    if(ans==n)
+    
+
+    if(ans==temp)
     {
         return true;
     }
+   
     return false;
 
 }
+
 
 bool amicable_numbers(int a, int b)
 {
