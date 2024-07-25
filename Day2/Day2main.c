@@ -19,5 +19,7 @@ int main()
   //printf("%d",amstrong_number(8208));
   assert(amstrong_number(8208)==1);
   //printf("%d",poww(6,4));
+ // printf("%d",amicable_numbers(1184,1210));
+  assert(amicable_numbers(220,284)==1);
 
 }
