@@ -8,14 +8,22 @@ int main()
 
    int size=0;
    scanf("%d",&size);
-   
-   int *arr = (int *)malloc(size * sizeof(int));
-  
-  for(int i=0;i<size;i++)
-  {
-    printf("%d\n",arr[i]);
-  }
+   int *arr;
+   allot_memory(arr,size);
 
+   add_elements(arr,size);
+   printf("%d\n",sum(arr,size));
+
+   int max,min;
+
+   max_min(arr,size,&max,&min);
+   printf("%d %d\n",max,min);
+
+   
+
+  
+
+  
 
 
 }
