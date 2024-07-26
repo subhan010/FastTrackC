@@ -21,5 +21,7 @@ int main()
   //printf("%d",poww(6,4));
  // printf("%d",amicable_numbers(1184,1210));
   assert(amicable_numbers(220,284)==1);
+  assert(electricity_charges_calculator(301)==1710);
+  //printf("%d",electricity_charges_calculator(301));
 
 }

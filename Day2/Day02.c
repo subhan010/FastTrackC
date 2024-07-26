@@ -327,8 +327,7 @@ void calculate_volume()
 int electricity_charges_calculator(int units)
 {
     int ans;
-    while(true)
-    {
+   
         if(units>=200)
         {
             ans=ans+(200)*5;
@@ -336,29 +335,33 @@ int electricity_charges_calculator(int units)
         else
         {
             ans=units*5;
-            break;
+            return ans;
         }
+ 
 
         units=units-200;
         if(units>=100)
         {
             ans=ans+(100)*7;
+            units=units-100;
         }
         else
         {
+           
             ans=ans+units*7;
-            break;
+            printf("Debug ** %d\n",ans);
+            return ans;
         }
-        units=units-100;
+       
         if(units>0)
         {
             ans=ans+(units*10);
         }
 
-        break;
+        return ans;
 
 
-    }
+    
 }
 
 

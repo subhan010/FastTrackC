@@ -8,11 +8,39 @@ int bin_to_dec(long num)
     double count=0;
     while(num>0)
     {
-        double temp=pow(2,0);
-        ans=ans+ (temp)*(ans%num);
+        double temp=pow(2,count);
+        if(num%10==1)
+        {
+             ans=ans+temp;
+        }
+
+
+        //ans=ans+ (temp)*(ans%num);
         num=num/10;
         count++;
     }
+    return ans;
+}
+
+
+int dec_to_bin(long num)
+{ 
+    int ans=0;
+    int count=1;
+    int rem=0;
+   
+    while(num>0)
+    {
+        rem=num%2;
+       num=num/2;
+    
+       ans=ans+rem*count;
+       
+       count=count*10;
+
+    }
+ 
+
     return ans;
 }
 
